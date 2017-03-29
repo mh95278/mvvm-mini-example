@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.mycompany</groupId>
+  <artifactId>mvvm-mini-example</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>mvvm-mini-example</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+    <build>
+<plugins>
+	<plugin>
+		<!-- Build an executable JAR -->
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-jar-plugin</artifactId>
+		<version>3.0.2</version>
+		<configuration>
+			<archive>
+			<manifest>
+				<addClasspath>true</addClasspath>
+				<classpathPrefix>lib/</classpathPrefix>
+				<mainClass>com.mycompany.mvvmExample.Starter</mainClass>
+			</manifest>
+			</archive>
+		</configuration>
+		</plugin>
+	<plugin>
+       <groupId>org.codehaus.mojo</groupId>
+       <artifactId>exec-maven-plugin</artifactId>
+       <version>1.1.1</version>
+       <executions>
+        <execution>
+         <phase>test</phase>
+         <goals>
+          <goal>java</goal>
+         </goals>
+         <configuration>
+          <mainClass>com.mycompany.mvvmExample.Starter</mainClass>
+         </configuration>
+        </execution>
+       </executions>
+      </plugin>
+
+</plugins>
+</build>
+</project>
